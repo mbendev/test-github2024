@@ -12,13 +12,14 @@ class Employe:
         return chaine
     
 class Responsable(Employe):
-    def __init__(self, identifiant, nom, rang):  
-        Employe.__init__(self, identifiant, nom)
+    def __init__(self, identifiant, nom, rang):
+        super().__init__(identifiant, nom)
         self.type = "Responsable"
         self.number = rang
   
     def __repr__(self):
-        chaine = "{} {} : {} (number {})".format(self.type, self.id, self.nom, self.number)
+        chaine = super().__repr__()
+        chaine += " (number {})".format(self.number)
         return chaine
     
     def engueuler(self, employe):
